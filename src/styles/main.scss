@@ -1,0 +1,123 @@
+// Global variables
+:root {
+  --background-color: #{$dark};
+  --text-color: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --hover-color: #{color.adjust($dark, $lightness: 10%)};
+  --primary-color: #{$primary};
+  --primary-hover: #{color.adjust($primary, $lightness: 10%)};
+  --card-min-width: 375px;
+  --header-height: 56px;
+  --header-height-mobile: 50px;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: var(--card-min-width);
+}
+
+// Dialog styles
+.custom-dialog {
+  .q-dialog__inner {
+    > div {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+  }
+
+  .q-card {
+    background-color: var(--background-color);
+    
+    .q_card__section {
+      color: var(--text-color);
+    }
+  }
+
+  .q-btn {
+    min-width: 100px;
+  }
+}
+
+// Table styles
+.my-sticky-header-table {
+  height: calc(100vh - var(--header-height) - 32px);
+  
+  thead tr:first-child th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #1a2634 !important;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  tbody tr {
+    background-color: var(--background-color);
+    
+    td {
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    &:hover {
+      background-color: var(--hover-color);
+    }
+  }
+
+  .q_checkbox__inner {
+    color: var(--text-color);
+    
+    &:before {
+      border-color: var(--text-color);
+    }
+  }
+  
+  &.q-checkbox--checked {
+    .q_checkbox__inner {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Input styles
+.custom-input {
+  .q-field__control {
+    background-color: #374151;
+    border: 1px solid var(--primary-color);
+  }
+
+  .q_field__native {
+    color: var(--text-color);
+  }
+
+  .q-field__label {
+    color: var(--text-secondary);
+  }
+}
+
+// Dropdown menu styles
+.custom-menu {
+  background-color: #35494D !important;
+  color: var(--text-color);
+  
+  .custom-menu-item {
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #55C7CC !important;
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 599px) {
+  .my-sticky-header-table {
+    height: calc(100vh - var(--header-height-mobile) - 24px);
+  }
+}
